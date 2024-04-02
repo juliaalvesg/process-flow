@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Processo</title>
+    <link rel="stylesheet" href="../css/editprocess.css">
+</head>
+<body>
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+
+      
+          <h2>Informações do Processo do Cliente</h2>
+         
+          <form id="processForm">
+            <label for="tipoCliente">Tipo de Cliente:</label><br>
+            <select id="tipoCliente" name="tipoCliente">
+              <option value="fisica">Pessoa Física</option>
+              <option value="juridica">Pessoa Jurídica</option>
+            </select><br>
+            <label for="nomeCliente">Nome do Cliente:</label><br>
+            <input type="text" id="nomeCliente" name="nomeCliente" required><br>
+            <label for="causaProcesso">Causa do Processo:</label><br>
+            <input type="text" id="causaProcesso" name="causaProcesso" required><br>
+            <label for="dataHora">Data e Hora:</label><br>
+            <input type="datetime-local" id="dataHora" name="dataHora" required><br>
+            <label for="andamento">Andamento do Processo:</label><br>
+            <textarea id="andamento" name="andamento" rows="4" cols="50" required></textarea><br>
+            <label for="infoAdicionais">Informações Adicionais:</label><br>
+            <textarea id="infoAdicionais" name="infoAdicionais" rows="4" cols="50"></textarea><br>
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+      
+      </div>
+      
+      
+    <script src="../javascript/editprocess.js"></script>
+</body>
+</html>

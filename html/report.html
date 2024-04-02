@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+    <link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Relatório</h1>
+        <form id="infoForm">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required>
+            <label for="causa">Causa:</label>
+            <input type="text" id="causa" name="causa" required>
+            <label for="data">Data:</label>
+            <input type="text" id="data" name="data" required>
+            <button type="submit">Adicionar</button>
+        </form>
+        <label for="search">Buscar Processo:</label>
+        <input type="text" id="search" name="search" placeholder="Buscar por número do processo">
+        <button id="searchBtn">Buscar</button>
+        <h2>Lista de Processos</h2>
+        <ul id="processList"></ul>
+        <button id="clearBtn">Limpar Lista de Processos</button> <!-- Caso precise de um botão para limpar, até automatizar -->       
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" onload="loadScript()" defer></script>
+    <script src="../javascript/report.js" defer></script>
+</body>
+</html>
