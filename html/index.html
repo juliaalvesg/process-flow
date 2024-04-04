@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<title>Exemplo</title>
+<style>
+    @font-face {
+        font-family: 'Gilroy-bold';
+        src: url(../font/Gilroy-Bold.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-regular';
+        src: url(../font/Gilroy-Regular.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Medium';
+        src: url(../font/Gilroy-Medium.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Light';
+        src: url(../font/Gilroy-Light.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Heavy';
+        src: url(../font/Gilroy-Heavy.ttf);
+    }
+
+</style>
+</head>
+<body>
+<header>
+    <div class="menu">
+        <span>Produtos</span>
+        <span>Fale Conosco</span>
+    </div>
+    <img src="../imgs/logo.png" alt="Logo" class="logo">
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+        <button class="login-button">Inicie aqui &#8599;</button>
+    </div>
+</header>
+<div class="container">
+    <div class="content">
+        <div class="info">
+            <p class="description-process">PROCESS FLOW SYSTEM</p>
+            <h1 class="title-container">
+                Temos a solução perfeita
+                para o sucesso de sua 
+                carreira jurídica.
+            </h1>
+            <p class="detail">Sabemos que com a expansão de clientes e tarefas à fazer
+                o que mais lhe exige tempo e atenção é a atualização
+                (ou cobrança) dos processos.</p>
+        <button class="request-button">Solicite um Orçamento <span class="arrow">&#8599;</span></button>
+        <button class="free-trial-button">Teste de graça! <span class="arrow">&#8599;</span></button>
+    </div>
+    </div>
+    <div class="image">
+        <img src="../imgs/photo.png" alt="Imagem" width="600px">
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const title = document.querySelector('.title-container');
+        title.innerHTML = title.innerHTML.replace(/(solução perfeita|sucesso|jurídica)/gi, "<span class='highlighted'>$1</span>");
+    });
+    </script>
+</body>
+</html>
