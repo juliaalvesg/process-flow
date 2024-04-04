@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 5vh;
+    color: #01213A;
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #DBDBDB;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.logo {
+    max-width: 140px;
+}
+.menu {
+    font-family: Gilroy-Medium;
+    font-weight: 400;
+    font-size: 16px;
+    color: #01213A;
+
+}
+.menu span{
+    margin-right: 1em; 
+}
+.login-container {
+    display: flex;
+    align-items: center;
+}
+.login-title {
+    margin-right: 10px;
+    font-family: Gilroy-Medium;
+    font-weight: 400;
+    font-size: 16px;
+    color: #01213A;
+    margin-right: 1em; 
+}
+.login-button {
+    background-color: transparent;
+    border: 2px solid #01213A;
+    color: #01213A;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Gilroy-Medium;
+    font-weight: 400;
+    font-size: 16px;
+
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 88vh; /* Ocupa o tamanho da tela */
+    background-color: #F8F8F8;
+    padding-left: 3em;
+}
+.login-form {
+    margin: 20px;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    align-items: center;
+    margin: auto;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Gilroy-Regular', sans-serif;
+}
+.login-form input[type="submit"] {
+    background-color: #01213A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Gilroy-Medium', sans-serif;
+}
+
+.title-container {
+    font-family: Gilroy-bold;
+    font-weight: bold; /* Garante que o título seja exibido em negrito */
+    font-size: 40px;
+    margin: 0; /* Remova as margens padrão */
+    color: black; /* Define a cor da fonte como preta */
+}
+.detail{
+    font-family: Gilroy-Medium;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.request-button {
+    background-color: #01213A;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    font-family: Gilroy-regular;
+}
+.free-trial-button{
+    color: #01213A;
+    font-family: Gilroy-regular;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: underline;
+    background-color: transparent;
+}
+.request-button:hover, .free-trial-button:hover {
+    background-color: #01213A;
+    color: #ffffff;
+}
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
