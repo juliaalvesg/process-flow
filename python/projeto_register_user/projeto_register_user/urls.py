@@ -1,5 +1,5 @@
 """
-URL configuration for processFlow project.
+URL configuration for projeto_register_user project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -15,8 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from app_register_user import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    #rota, view, nome of reference
+
+    #there is empty because is a main page, else add /namepage
+    path('admin/', admin.site.urls),
+    path('',views.index,name='index'),
+    path('auth/', include('app_register_user.urls')),
+    
 ]

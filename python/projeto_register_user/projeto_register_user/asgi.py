@@ -1,5 +1,5 @@
 """
-ASGI config for processFlow project.
+ASGI config for projeto_register_user project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "processFlow.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "projeto_register_user.settings")
 
 application = get_asgi_application()
