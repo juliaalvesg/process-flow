@@ -1,0 +1,257 @@
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(238, 238, 238);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 75px;
+  background-color: rgb(110, 127, 134); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.logo {
+  position: absolute;
+  left: 57px;
+  top: -12px;
+  width: 109px;
+  height: 98px;
+  background-color: transparent;
+}
+
+.box {
+  position: absolute;
+  left: 251px;
+  top: 75px;
+  width: 1669px;
+  height: 57px;
+  background-color: rgb(121, 136, 143);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 75px;
+  width: 251px;
+  height: 878px;
+  background-color: rgb(96, 111, 117); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-report {
+  position: absolute;
+  left: 1530px;
+  top: 156px;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(234, 235, 235);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: rgb(10, 10, 10);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-report:hover {
+  background-color: rgb(221, 221, 221);
+}
+
+.button-edit {
+  position: absolute;
+  left: 1650px;
+  top: 156px;
+  width: 135px;
+  height: 40px;
+  background-color: #62B64C;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-edit:hover {
+  background-color: #529740;
+}
+
+.word-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.word {
+  font-size: 14px;
+  font-weight: medium;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.word-resumo {
+  font-size: 14px;
+  font-weight: medium;
+  padding: 5px;
+  cursor: pointer;
+  color: rgb(156, 163, 56);
+}
+
+.text-resume {
+  position: absolute;
+  left: 309px;
+  top: 172px;
+  width: 255px;
+  height: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px; 
+  font-weight: medium; 
+  color: rgb(102, 102, 102);
+}
+
+
+.container-left {
+  position: relative;
+}
+
+.box-left {
+  position: absolute;
+  width: 560px;
+  height: 51px;
+  box-shadow: 10px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.box-left:nth-child(1) {
+  left: 301px;
+  top: 335px;
+  background-color: rgb(226, 226, 226);
+}
+
+.box-left:nth-child(2) {
+  left: 301px;
+  top: 284px;
+  background-color: rgb(238, 236, 236);
+}
+
+.box-left:nth-child(3) {
+  left: 301px;
+  top: 233px;
+  background-color: rgb(226, 226, 226);
+}
+
+.container-right {
+  position: relative;
+}
+
+.box-right {
+  position: absolute;
+  width: 560px;
+  height: 51px;
+  box-shadow: 10px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.box-right:nth-child(1) {
+  left: 1250px;
+  top: 335px;
+  background-color: rgb(226, 226, 226);
+ 
+}
+
+.box-right:nth-child(2) {
+  left: 1250px;
+  top: 284px;
+  background-color: rgb(238, 236, 236);
+ 
+}
+
+.box-right:nth-child(3) {
+  left: 1250px;
+  top: 233px;
+  background-color: rgb(226, 226, 226);
+
+}
+
+.line {
+  position: absolute;
+  left: 255px;
+  top: 405px;
+  width: 1650px;
+  height: 0;
+  border: none;
+  border-top: 1px solid rgb(224, 223, 223); 
+}
+
+.text-timeline {
+  position: absolute;
+  left: 945px;
+  top: 461px;
+  width: 259px;
+  height: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: medium;
+  color: rgb(102, 102, 102);
+}
+
+.line-vertical {
+  position: absolute;
+  left: 1055px;
+  top: 540px;
+  width: 3px;
+  height: 374px;
+  background-color: #4EB1DB;
+  transform: rotate(180deg);
+}
+.circle-up {
+  position: absolute;
+  left: 1042px;
+  top: 645px;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background-color: #4EB1DB; 
+}
+
+.circle-down {
+  position: absolute;
+  left: 1042px;
+  top: 769px;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background-color: #4EB1DB; 
+}
+
+.line-up {
+  position: absolute;
+  left: -0.03px;
+  top: 403.5px;
+  width: 251px;
+  height: 1px;
+  background-color: rgb(151, 148, 148);
+}
+
+.line-down {
+  position: absolute;
+  left: -0.03px;
+  top: 710.5px;
+  width: 251px;
+  height: 1px;
+  background-color: rgb(151, 148, 148);
+}
