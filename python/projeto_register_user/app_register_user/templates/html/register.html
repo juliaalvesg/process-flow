@@ -1,25 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body> 
-    <form action="{% url 'register' %}" method="POST"> {%csrf_token%}
-        <input type="text" placeholder="username" name="username">
-        <br>
-        <br>
-        <input type="email" placeholder="email" name="email">
-        <br>
-        <br>
-        <input type="password" placeholder="password" name="password">
-        <br>
-        <br>
-        <input type="submit" name="submit" value="cadastrar">
-        <br>
-        <br>
-    </form>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+<title>Exemplo</title>
+<style>
+    @font-face {
+        font-family: 'Gilroy-bold';
+        src: url(../font/Gilroy-Bold.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-regular';
+        src: url(../font/Gilroy-Regular.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Medium';
+        src: url(../font/Gilroy-Medium.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Light';
+        src: url(../font/Gilroy-Light.ttf);
+    }
+    @font-face {
+        font-family: 'Gilroy-Heavy';
+        src: url(../font/Gilroy-Heavy.ttf);
+    }
 
+</style>
+</head>
+<body>
+<header>
+    <div class="menu">
+        <span>Produtos</span>
+        <span>Fale Conosco</span>
+    </div>
+    <img src="{% static 'imgs/logo.png' %}" alt="Logo" class="logo">
+    <div class="login-container">
+        <button class="login-button">Login &#8599;</button>
+    </div>
+</header>
+<div class="container">
+    <div class="login-form">
+        <h1 class="title-container">Vamos iniciar o seu cadastro!</h1>
+        <p class="detail">Sabemos que com a expansão de clientes e tarefas à fazer
+            o que mais lhe exige tempo e atenção é a atualização
+            (ou cobrança) dos processos.</p>
+        <form method="POST" action="{% url 'register' %}">{% csrf_token %}
+            
+            <input type="text" name="username" id="nome" placeholder="Nome">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Senha">
+            <input type="submit" value="cadastrar" class="request-button" name="submit">
+        </form>
+    </div>
+    <div class="image">
+        <img src="{% static 'imgs/login.png' %}" alt="Imagem" width="500px">
+    </div>
+</div>
+
+</div>
 </body>
 </html>
