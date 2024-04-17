@@ -24,6 +24,7 @@ urlpatterns = [
     #there is empty because is a main page, else add /namepage
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
+    path('editProcess/', views.editProcess, name='editProcess'),
     path('auth/', include('app_register_user.urls')),
     
 ]

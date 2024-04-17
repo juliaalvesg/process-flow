@@ -49,4 +49,7 @@ def login(request):
 
 @login_required(login_url="/auth/login/")        
 def plataforma(request):
-        HttpResponse("Está na plataforma")        
+        HttpResponse("Está na plataforma")
+
+def editProcess(request):
+    return render(request, 'html/editprocess.html')                
