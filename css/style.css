@@ -101,10 +101,6 @@ body, html {
     text-decoration: underline;
     background-color: transparent;
 }
-.request-button:hover, .free-trial-button:hover {
-    background-color: #01213A;
-    color: #ffffff;
-}
 
 .arrow {
     margin-left: 5px;

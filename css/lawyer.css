@@ -1,0 +1,232 @@
+.container {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  grid-template-rows: 8rem 1fr;
+  grid-template-areas:
+    "header header header"
+    "nav content content"
+    "footer footer footer";
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  font-family: "Gilroy-Medium";
+}
+
+main {
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 28rem;
+  grid-template-rows: 1fr;
+  grid-template-areas: "main1 main2 ";
+  padding: 4rem;
+}
+.main1 {
+  grid-area: main1;
+  display: grid;
+  grid-template-rows: 9rem 1fr;
+  grid-template-areas:
+    "item1 item2 item3"
+    "main_item main_item main_item";
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: blue;
+}
+
+.main1 > .item1,
+.main1 > .item2,
+.main1 > .item3 {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+}
+.main_item {
+  grid-area: main_item;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+}
+.main2 {
+  grid-area: main2;
+  display: grid;
+  grid-template-rows: 12rem 1fr;
+  grid-template-areas:
+    "item1"
+    "item2";
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: green;
+}
+.main2 > .item1,
+.main2 > .item2,
+.main2 > .item3 {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+}
+.right_header {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+
+  height: 140px;
+}
+
+.input_container > i {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  color: #999999;
+  z-index: 1;
+
+  width: 25px;
+  height: 25px;
+}
+
+.input_container {
+  display: flex;
+  align-items: center;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50px - 3.2px);
+  height: calc(50px - 3.2px);
+  border-radius: 12px;
+  border: 2px solid rgb(224, 222, 222);
+  background-color: #f7f7f7;
+  margin-left: 20px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border: 2px solid rgb(224, 222, 222);
+  border-radius: 12px;
+  width: 20rem;
+  height: calc(50px - 5.2px);
+  font-size: 1.5rem;
+  padding-left: 3rem;
+  background-color: #f7f7f7;
+
+  font-size: 20px;
+}
+input:focus {
+  outline: none;
+}
+::placeholder {
+  color: rgb(224, 222, 222);
+}
+.logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profilephoto{
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  
+  margin-left: 20px;
+}
+
+.img-logo{
+  width: 100%;
+}
+
+.menu {
+  padding: 1rem 0rem 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: rgb(12, 64, 103);
+}
+.menu_bottom {
+  padding: 1rem 1rem 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: rgb(12, 64, 103);
+}
+
+.menu_bottom > ul,
+.menu > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.menu_bottom > ul > li,
+.menu > ul > li {
+  padding: 1rem 0rem 1rem 0rem;
+
+  display: flex;
+  align-items: center;
+}
+.menu_bottom > ul > li:hover,
+.menu > ul > li:hover {
+  background-color: rgb(231, 231, 231);
+  border-left: 4px solid rgb(21, 76, 121);
+}
+
+a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: rgb(21, 76, 121);
+}
+
+.li{
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+p{
+  margin-left: 5px;
+}
+
+i.fa-solid {
+  margin-right: 10px;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0rem 1rem 0rem;
+  background-color: rgb(255, 255, 255);
+}
+
+main {
+  grid-area: content;
+  padding: 2rem;
+  background-color: rgb(242, 242, 242);
+  border-top-left-radius: 2rem;
+}
+
+footer {
+  grid-area: footer;
+  padding: 2rem;
+  background-color: rgb(21, 76, 121);
+}
