@@ -7,3 +7,29 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Cliente(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefone = models.CharField(max_length=20)
+    cpf = models.CharField(max_length=11)
+    identidade = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nome
+
+class Processo(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    numero_processo = models.CharField(max_length=100)
+    vara = models.CharField(max_length=100)
+    local = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.numero_processo
+
+class Atualizacao(models.Model):
+    processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
+    informacoes = models.TextField()
+
+    def __str__(self):
+        return f"Atualização do Processo {self.processo.numero_processo}"
