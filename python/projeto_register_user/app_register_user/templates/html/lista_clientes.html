@@ -1,34 +1,183 @@
-<!-- lista_clientes.html -->
+<!-- html/lista_clientes.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Lista de Clientes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Adicione outras dependências como Bootstrap para estilizar os modais -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Lista de Clientes</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>CPF</th>
-                <th>Identidade</th>
-                <!-- Adicione outras colunas conforme necessário -->
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in clientes %}
-            <tr>
-                <td>{{ cliente.nome }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>{{ cliente.telefone }}</td>
-                <td>{{ cliente.cpf }}</td>
-                <td>{{ cliente.identidade }}</td>
-                <!-- Adicione outras colunas conforme necessário -->
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h1>Lista de Clientes</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Identidade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.telefone }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.identidade }}</td>
+            <td>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="{{ cliente.id }}" data-nome="{{ cliente.nome }}" data-email="{{ cliente.email }}" data-telefone="{{ cliente.telefone }}" data-cpf="{{ cliente.cpf }}" data-identidade="{{ cliente.identidade }}">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ cliente.id }}">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="btn btn-success" data-toggle="modal" data-target="#addAtualizacaoModal" data-id="{{ cliente.id }}">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Modal de Edição -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{% url 'editar_cliente' %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-nome">Nome</label>
+                        <input type="text" class="form-control" id="edit-nome" name="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email</label>
+                        <input type="email" class="form-control" id="edit-email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-telefone">Telefone</label>
+                        <input type="text" class="form-control" id="edit-telefone" name="telefone">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-cpf">CPF</label>
+                        <input type="text" class="form-control" id="edit-cpf" name="cpf">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-identidade">Identidade</label>
+                        <input type="text" class="form-control" id="edit-identidade" name="identidade">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Exclusão -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{% url 'excluir_cliente' %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Excluir Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="delete-id">
+                    <p>Você tem certeza que deseja excluir este cliente?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Adicionar Atualização -->
+<div class="modal fade" id="addAtualizacaoModal" tabindex="-1" aria-labelledby="addAtualizacaoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="{% url 'adicionar_atualizacao' %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAtualizacaoModalLabel">Adicionar Atualização</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="processo_id" id="add-atualizacao-processo-id">
+                    <div class="form-group">
+                        <label for="add-informacoes">Informações</label>
+                        <textarea class="form-control" id="add-informacoes" name="informacoes"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#editModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+        var nome = button.data('nome')
+        var email = button.data('email')
+        var telefone = button.data('telefone')
+        var cpf = button.data('cpf')
+        var identidade = button.data('identidade')
+
+        var modal = $(this)
+        modal.find('#edit-id').val(id)
+        modal.find('#edit-nome').val(nome)
+        modal.find('#edit-email').val(email)
+        modal.find('#edit-telefone').val(telefone)
+        modal.find('#edit-cpf').val(cpf)
+        modal.find('#edit-identidade').val(identidade)
+    })
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var id = button.data('id')
+
+        var modal = $(this)
+        modal.find('#delete-id').val(id)
+    })
+
+    $('#addAtualizacaoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var processo_id = button.data('id')
+
+        var modal = $(this)
+        modal.find('#add-atualizacao-processo-id').val(processo_id)
+    })
+</script>
+
 </body>
 </html>

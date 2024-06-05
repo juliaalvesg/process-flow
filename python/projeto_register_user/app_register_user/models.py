@@ -11,7 +11,7 @@ class Post(models.Model):
 class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField()
-    telefone = models.CharField(max_length=20)
+    telefone = models.CharField(max_length=15)
     cpf = models.CharField(max_length=11)
     identidade = models.CharField(max_length=20)
 
@@ -32,4 +32,4 @@ class Atualizacao(models.Model):
     informacoes = models.TextField()
 
     def __str__(self):
-        return f"Atualização do Processo {self.processo.numero_processo}"
+        return self.informacoes

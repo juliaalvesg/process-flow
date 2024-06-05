@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http.response import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Cliente
+from .models import Cliente, Processo, Atualizacao
+from django.http import HttpResponseRedirect
 # views.py
 from django.shortcuts import render, redirect
 from .forms import ClienteForm, ProcessoForm, AtualizacaoForm
@@ -83,5 +84,42 @@ def formulario(request):
     })
 
 def lista_clientes(request):
-    clientes = Cliente.objects.all()
+    clientes = Cliente.objects.all().prefetch_related('processo_set__atualizacao_set')
     return render(request, 'html/lista_clientes.html', {'clientes': clientes})
+
+def editar_cliente(request, cliente_id):
+    # Obtenha a instância do cliente que está sendo editado
+    cliente = get_object_or_404(Cliente, id=cliente_id)
+    
+    if request.method == 'POST':
+        # Preencha o formulário com os dados do cliente e os dados POST
+        form = ClienteForm(request.POST, instance=cliente)
+        if form.is_valid():
+            # Salve as alterações no cliente
+            form.save()
+            # Redirecione para a página de lista de clientes após a edição
+            return redirect('lista_clientes')
+    else:
+        # Se a solicitação não for POST, exiba o formulário preenchido com os dados do cliente
+        form = ClienteForm(instance=cliente)
+
+    # Renderize o template de edição do cliente com o formulário
+    return render(request, 'editar_cliente.html', {'form': form})
+
+def excluir_cliente(request):
+    if request.method == 'POST':
+        cliente_id = request.POST.get('id')
+        cliente = get_object_or_404(Cliente, id=cliente_id)
+        cliente.delete()
+        return redirect('lista_clientes')
+
+def adicionar_atualizacao(request):
+    if request.method == 'POST':
+        processo_id = request.POST.get('processo_id')
+        processo = get_object_or_404(Processo, id=processo_id)
+        form = AtualizacaoForm(request.POST)
+        if form.is_valid():
+            atualizacao = form.save(commit=False)
+            atualizacao.processo = processo
+            atualizacao.save()
+            return redirect('lista_clientes')
