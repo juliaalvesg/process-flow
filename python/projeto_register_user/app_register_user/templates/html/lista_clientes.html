@@ -19,7 +19,7 @@
             <th>Telefone</th>
             <th>CPF</th>
             <th>Identidade</th>
-            <th>Ações</th>
+            <th>Processos</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +30,20 @@
             <td>{{ cliente.telefone }}</td>
             <td>{{ cliente.cpf }}</td>
             <td>{{ cliente.identidade }}</td>
+            <td>
+                <ul>
+                    {% for processo in cliente.processo_set.all %}
+                    <li>
+                        Número do Processo: {{ processo.numero_processo }}
+                        <ul>
+                            {% for atualizacao in processo.atualizacao_set.all %}
+                            <li>Informações da Atualização: {{ atualizacao.informacoes }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
             <td>
                 <button class="btn btn-primary" data-toggle="modal" data-target="#editModal" data-id="{{ cliente.id }}" data-nome="{{ cliente.nome }}" data-email="{{ cliente.email }}" data-telefone="{{ cliente.telefone }}" data-cpf="{{ cliente.cpf }}" data-identidade="{{ cliente.identidade }}">
                     <i class="fas fa-pencil-alt"></i>
