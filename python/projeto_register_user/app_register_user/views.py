@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 # views.py
 from django.shortcuts import render, redirect
 from .forms import ClienteForm, ProcessoForm, AtualizacaoForm
+from django.http import JsonResponse
 
 #Importa com nome de classe a tabela do SQL
 # Create your views here.
@@ -71,7 +72,9 @@ def formulario(request):
             atualizacao = atualizacao_form.save(commit=False)
             atualizacao.processo = processo
             atualizacao.save()
-            return redirect('success')  # Redirecione para uma página de sucesso
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': cliente_form.errors})
     else:
         cliente_form = ClienteForm()
         processo_form = ProcessoForm()
