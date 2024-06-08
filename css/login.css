@@ -74,7 +74,7 @@ body, html {
 }
 .login-form input[type="text"],
 .login-form input[type="password"] {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -134,7 +134,7 @@ body, html {
     color: #ffffff;
 }
 .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: auto;
+
+    background-color: #01213A;
 }

@@ -3,6 +3,12 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.link-header, .link-login{
+    text-decoration: none;
+    color: #01213A;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -90,9 +96,18 @@ body, html {
     padding-bottom: 19px;
     font-family: Gilroy-regular;
 }
+
+.request-button:hover{
+    background-color: #002c4e;
+    transition: background-color 0.2s ease-in;
+    transition: scale 0.3s ease-in-out;
+    scale: 99%;
+}
+
 .free-trial-button{
     color: #01213A;
-    font-family: Gilroy-regular;
+    font-family: Gilroy;
+    font-weight: 600;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -121,6 +136,8 @@ body, html {
     font-size: 40px;
     margin: 0; /* Remova as margens padrão */
     color: black; /* Define a cor da fonte como preta */
+    letter-spacing: -1px;
+    line-height: 100%;
 }
 
 .highlighted {
