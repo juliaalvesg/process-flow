@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../css/test.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Process Flow - Formulário Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+        @font-face {
+            font-family: "Gilroy-bold";
+            src: url(../font/Gilroy-Bold.ttf);
+          }
+          @font-face {
+            font-family: "Gilroy-regular";
+            src: url(../font/Gilroy-Regular.ttf);
+          }
+          @font-face {
+            font-family: "Gilroy-Medium";
+            src: url(../font/Gilroy-Medium.ttf);
+          }
+          @font-face {
+            font-family: "Gilroy-Light";
+            src: url(../font/Gilroy-Light.ttf);
+          }
+          @font-face {
+            font-family: "Gilroy-Heavy";
+            src: url(../font/Gilroy-Heavy.ttf);
+          }
+
+        .form-block {
+            padding: 20px;
+            margin: 5px ;
+            border-radius: 5px;
+            flex-direction: column;
+        }
+        .form-block h3 {
+            margin-top: 0;
+        }
+
+        input{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body style="margin: 0">
+    <div class="container">
+      <header>
+        <div class="logo">
+          <a href=""><img class="img-logo" src="../imgs/Lockup-PF.svg"/></a>
+        </div>
+        <div class="right_header">
+          <h1 style="display: flex; align-items: center;" >
+            Formulário de Cadastro
+          </h1>
+          <div class="input_container">
+            <i class="fas fa-search"></i>
+            <input type="text" class="placeholder" placeholder="Pesquisar..." />
+            <div class="notification">
+              <i
+                class="far fa-bell"
+                style="margin: 0; font-size: 30px; color: rgb(197, 197, 197)"
+              ></i>
+            </div>
+            <div class="perfil">
+              <div class="foto">
+                <img class="profilephoto" src="../imgs/perfil.jpg" style="background-size: cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <form id="myForm" method="post">
+        <div class="container-form">
+            <div class="form-block">
+                <h3>Dados do Cliente</h3>
+                <p>
+                    <label for="id_nome">Nome:</label>
+                    <input type="text" name="nome" id="nome">
+                </p>
+                <p>
+                    <label for="id_email">Email:</label>
+                    <input type="text" name="email" id="email">
+                </p>
+                <p>
+                    <label for="id_telefone">Telefone:</label>
+                    <input type="text" name="telefone" id="telefone">
+                </p>
+                <p>
+                    <label for="id_cpf">CPF:</label>
+                    <input type="text" name="cpf" id="cpf">
+                </p>
+                <p>
+                    <label for="id_identidade">Identidade:</label>
+                    <input type="text" name="identidade" id="identidade">
+                </p>
+            </div>
+            <div class="form-block">
+                <h3>Dados do Processo</h3>
+                <p>
+                    <label for="id_numprocesso">Numero processo:</label>
+                    <input type="text" name="numprocesso" id="numprocesso">
+                </p>
+                <p>
+                    <label for="id_vara">Vara:</label>
+                    <input type="text" name="vara" id="vara">
+                </p>
+                <p>
+                    <label for="id_local">Local:</label>
+                    <input type="text" name="local" id="local">
+                </p>
+            </div>
+            </div>
+            <div class="form-block">
+                <h3>Atualizações</h3>
+                <p>
+                    <textarea class="info" name="id_informacoes" cols="40" rows="10" required id="id_informacoes"></textarea>
+                </p>
+            <button type="submit" class="btn">Salvar</button>
+        </div>
+        </form>
+    
+ 
+      </main>
+
+      <nav>
+        <div class="menu">
+          <h3 style="margin-left: 1rem">MENU PRINCIPAL</h3>
+          <ul>
+            <li>
+              <a href=""><i class="fa-solid fa-house"></i>Home</a>
+            </li>
+            <li>
+              <a href=""
+                ><i class="fa-solid fa-calendar-days"></i>Agendamento</a
+              >
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-balance-scale"></i>Processo</a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu_bottom">
+          <h3 style="margin-left: 1rem">CONTA</h3>
+          <ul>
+            <li>
+              <a href=""><i class="fa-solid fa-headphones"></i>Suporte</a>
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-adjust"></i>Ajustes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Exibe o modal de confirmação
+                    $('#confirmationModal').modal('show');
+                    $('#confirmationModal').on('hidden.bs.modal', function () {
+                        // Limpa os campos do formulário após fechar o modal
+                        document.getElementById("myForm").reset();
+                    });
+                } else {
+                    alert("Erro ao salvar as informações.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+  </body>
+</html>
