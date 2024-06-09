@@ -1,65 +1,85 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-<title>Exemplo</title>
-<style>
-    @font-face {
-        font-family: 'Gilroy-bold';
-        src: url(../font/Gilroy-Bold.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-regular';
-        src: url(../font/Gilroy-Regular.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Medium';
-        src: url(../font/Gilroy-Medium.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Light';
-        src: url(../font/Gilroy-Light.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Heavy';
-        src: url(../font/Gilroy-Heavy.ttf);
-    }
-
-</style>
-</head>
-<body>
-<header>
-    <div class="menu">
-        <span>Produtos</span>
-        <span>Fale Conosco</span>
-    </div>
-    <img src="{% static 'imgs/logo.png' %}" alt="Logo" class="logo">
-    <div class="login-container">
-        <button class="login-button">Cadastre-se aqui &#8599;</button>
-    </div>
-</header>
-<div class="container">
-    <div class="login-form">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../../../css/login.css" />
+    <title>Login</title>
+    <style>
+      @font-face {
+        font-family: "Gilroy-bold";
+        src: url(../../static/font/Gilroy-Bold.ttf);
+      }
+      @font-face {
+        font-family: "Gilroy-regular";
+        src: url(../../static/font/Gilroy-Regular.ttf);
+      }
+      @font-face {
+        font-family: "Gilroy-Medium";
+        src: url(../../static/font/Gilroy-Medium.ttf);
+      }
+      @font-face {
+        font-family: "Gilroy-Light";
+        src: url(../../static/font/Gilroy-Light.ttf);
+      }
+      @font-face {
+        font-family: "Gilroy-Heavy";
+        src: url(../../static/font/Gilroy-Heavy.ttf);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <a href="/html/index.html" class="link-header"><span>Produtos</span></a>
+        <a
+          href="https://wa.me/message/HMPGBLXXK4E3A1"
+          class="link-header"
+          target="_blank"
+          ><span>Fale Conosco</span></a
+        >
+      </div>
+      <a href="index.html" style="text-decoration: none">
+        <img src="../../static/imgs/Lockup-PF.svg" alt="Logo" class="logo" />
+      </a>
+      <div class="login-container">
+        <a href="register.html">
+          <button class="login-button">Cadastre-se aqui &#8599;</button>
+        </a>
+      </div>
+    </header>
+    <div class="container">
+      <div class="login-form">
         <h1 class="title-container">Informe seus dados</h1>
-        <p class="detail">Sabemos que com a expansão de clientes e tarefas à fazer
-            o que mais lhe exige tempo e atenção é a atualização
-            (ou cobrança) dos processos.</p>
-        <form method="POST" action="{% url 'login' %}">{% csrf_token %}
-            
-            <input type="text" name="username" id="email" placeholder="username">
-            <input type="password" name="password" id="password" placeholder="Senha">
-            <input type="submit" value="Login" class="request-button">
-            <button class="free-trial-button">Cadastre-se de graça <span class="arrow">&#8599;</span></button>
+        <p class="detail">
+          Inicie desde já uma melhor entrega no seu Process Flow!
+        </p>
+        <form method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
+          <input
+            type="text"
+            name="username"
+            id="email"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+          />
+          <div style="margin-top: 15px">
+            <input type="submit" value="Login" class="request-button" />
+            <!-- <a href="register.html">
+              <button class="free-trial-button">
+                Cadastre-se de graça <span class="arrow">&#8599;</span>
+              </button>
+            </a> tag 'a' não funciona-->
+          </div>
         </form>
+      </div>
+      <div class="image"></div>
     </div>
-    <div class="image">
-        <img src="{% static 'imgs/login.png' %}" alt="Imagem" width="500px">
-    </div>
-</div>
-
-</div>
-</body>
+  </body>
 </html>
