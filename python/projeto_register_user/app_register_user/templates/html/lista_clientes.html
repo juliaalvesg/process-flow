@@ -67,7 +67,6 @@
         </div>
       </header>
       <main>
-        <h1>Lista de Clientes</h1>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -95,8 +94,7 @@
                     <ul>
                       {% for atualizacao in processo.atualizacao_set.all %}
                       <li>
-                        Informações da Atualização: {{ a tualizacao.informacoes
-                        }}
+                        Informações da Atualização: {{ atualizacao.informacoes }}
                       </li>
                       {% endfor %}
                     </ul>
