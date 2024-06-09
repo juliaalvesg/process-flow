@@ -1,62 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="../css/login.css">
-<title>Login</title>
-<style>
-    @font-face {
-        font-family: 'Gilroy-bold';
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <title>Login</title>
+    <style>
+      @font-face {
+        font-family: "Gilroy-bold";
         src: url(../font/Gilroy-Bold.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-regular';
+      }
+      @font-face {
+        font-family: "Gilroy-regular";
         src: url(../font/Gilroy-Regular.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Medium';
+      }
+      @font-face {
+        font-family: "Gilroy-Medium";
         src: url(../font/Gilroy-Medium.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Light';
+      }
+      @font-face {
+        font-family: "Gilroy-Light";
         src: url(../font/Gilroy-Light.ttf);
-    }
-    @font-face {
-        font-family: 'Gilroy-Heavy';
+      }
+      @font-face {
+        font-family: "Gilroy-Heavy";
         src: url(../font/Gilroy-Heavy.ttf);
-    }
-
-</style>
-</head>
-<body>
-<header>
-    <div class="menu">
-        <span>Produtos</span>
-        <span>Fale Conosco</span>
-    </div>
-    <img src="../imgs/logo.png" alt="Logo" class="logo">
-    <div class="login-container">
-        <button class="login-button">Cadastre-se aqui &#8599;</button>
-    </div>
-</header>
-<div class="container">
-    <div class="login-form">
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+        <a href="/html/index.html" class="link-header"><span>Produtos</span></a>
+        <a
+          href="https://wa.me/message/HMPGBLXXK4E3A1"
+          class="link-header"
+          target="_blank"
+          ><span>Fale Conosco</span></a
+        >
+      </div>
+      <a href="index.html">
+        <img src="../imgs/logo.png" alt="Logo" class="logo" />
+      </a>
+      <div class="login-container">
+        <a href="register.html">
+          <button class="login-button">Cadastre-se aqui &#8599;</button>
+        </a>
+      </div>
+    </header>
+    <div class="container">
+      <div class="login-form">
         <h1 class="title-container">Informe seus dados</h1>
-        <p class="detail">Inicie desde já uma melhor entrega no seu Process Flow!</p>
+        <p class="detail">
+          Inicie desde já uma melhor entrega no seu Process Flow!
+        </p>
         <form method="POST" action="/login">
-            <input type="text" name="email" id="email" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Senha">
-            <div style="margin-top: 15px;">
-            <input type="submit" value="Login" class="request-button">
-            <button class="free-trial-button">Cadastre-se de graça <span class="arrow">&#8599;</span></button>
-            </div>
+          <input type="text" name="email" id="email" placeholder="Email" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Senha"
+          />
+          <div style="margin-top: 15px">
+            <input type="submit" value="Login" class="request-button" />
+            <!-- <a href="register.html">
+              <button class="free-trial-button">
+                Cadastre-se de graça <span class="arrow">&#8599;</span>
+              </button>
+            </a> tag 'a' não funciona-->
+          </div>
         </form>
+      </div>
+      <div class="image"></div>
     </div>
-    <div class="image">
-    </div>
-</div>
-
-</div>
-</body>
+  </body>
 </html>
