@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Cliente, Processo, Atualizacao
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 # views.py
 from django.shortcuts import render, redirect
 from .forms import ClienteForm, ProcessoForm, AtualizacaoForm
@@ -18,41 +19,59 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'html/index.html')
 
+from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.auth.models import User
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
+
 def register(request):
-    if request.method == "GET":
-        return render(request, 'html/register.html')
-    else:
+    if request.method == "POST":
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        if User.objects.filter(username=username).exists():
-            return HttpResponse("Já existe um usuário com este username.")
+        if not username or not email or not password:
+            messages.error(request, "Por favor, preencha todos os campos.")
+        else:
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Já existe um usuário com este username.")
+            else:
+                user = User.objects.create_user(username=username, email=email, password=password)
+                if user:
+                    messages.success(request, 'Cliente cadastrado com sucesso.')
+                else:
+                    messages.error(request, "Ocorreu um erro ao cadastrar o cliente.")
 
-        user = User.objects.create_user(username=username,email=email,password=password)
-        user.save()
-        return render(request, 'html/formulario.html')
+    return render(request, 'html/register.html')
+
+
+
+    
 
 
 
 
 def login(request):
     if request.method == "GET":
-        return render(request, 'html/formulario.html')
-    else:
+        return render(request, 'html/login.html')
+    elif request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
 
         # Autenticando usando o nome de usuário
         user = authenticate(request, username=username, password=password)
         
-        if user:
+        if user is not None:
             # Efetuando o login
             login_django(request, user)
-            # Redirecionando para a página formulario.html
-            return redirect('formulario')
+            # Redirecionando para a página desejada após o login bem-sucedido
+            return redirect('formulario')  # Altere 'formulario' para a URL desejada
         else:
-            return HttpResponse('Nome de usuário ou senha inválidos')
+            # Usuário não autenticado, exibir mensagem de erro
+            return render(request, 'html/login.html', {'error_message': 'Nome de usuário ou senha inválidos'})
 
 
 @login_required(login_url="/auth/login/")        
