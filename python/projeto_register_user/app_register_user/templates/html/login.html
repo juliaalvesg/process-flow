@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../../../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
     <title>Login</title>
     <style>
       @font-face {
@@ -40,7 +40,7 @@
           ><span>Fale Conosco</span></a
         >
       </div>
-      <a href="index.html" style="text-decoration: none">
+      <a href="{% url 'index' %}" style="text-decoration: none">
         <img src="../../static/imgs/Lockup-PF.svg" alt="Logo" class="logo" />
       </a>
       <div class="login-container">
@@ -79,7 +79,7 @@
           </div>
         </form>
       </div>
-      <div class="image"></div>
+      <div class="image"><img src="{% static 'imgs/photo.png' %}" alt="Imagem" width="600px" /></div>
     </div>
   </body>
 </html>

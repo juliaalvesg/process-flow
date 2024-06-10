@@ -1,14 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formulario.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+        @font-face {
+            font-family: "Gilroy-bold";
+            src: url("{% static 'font/Gilroy-Bold.ttf' %}");
+        }
+        @font-face {
+            font-family: "Gilroy-regular";
+            src: url("{% static 'font/Gilroy-Regular.ttf' %}");
+        }
+        @font-face {
+            font-family: "Gilroy-Medium";
+            src: url("{% static 'font/Gilroy-Medium.ttf' %}");
+        }
+        @font-face {
+            font-family: "Gilroy-Light";
+            src: url("{% static 'font/Gilroy-Light.ttf' %}");
+        }
+        @font-face {
+            font-family: "Gilroy-Heavy";
+            src: url("{% static 'font/Gilroy-Heavy.ttf' %}");
+        }
+
         .form-block {
             border: 1px solid #ccc;
             padding: 20px;
@@ -17,10 +42,62 @@
         .form-block h3 {
             margin-top: 0;
         }
+        input {
+            display: flex;
+            flex-direction: column;
+        }
+        
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1>Formulário de Cadastro</h1>
+<body style="margin: 0">
+    <div class="container">
+      <header>
+
+        <div class="right_header">
+          <h1 style="display: flex; align-items: center;">
+            Formulário de Cadastro
+          </h1>
+          <div class="input_container">
+            <i class="fas fa-search"></i>
+            <input type="text" class="placeholder" />
+            <div class="notification">
+              <i class="far fa-bell" style="margin: 0; font-size: 30px; color: rgb(197, 197, 197)"></i>
+            </div>
+            <div class="perfil">
+              <div class="foto">
+                <img class="profilephoto" src="{% static 'imgs/perfil.jpg' %}" style="background-size: cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <nav>
+        <div class="menu">
+          <h3 style="margin-left: 1rem; font-size:18px">MENU PRINCIPAL</h3>
+          <ul>
+            <li>
+              <a href="{% url 'index' %}" id="link-menu"><i class="fa-solid fa-house"></i>Home</a>
+            </li>
+            <li>
+              <a href="{% url 'lista_clientes' %}" id="link-menu"><i class="fa-solid fa-balance-scale"></i>Processo</a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu_bottom">
+          <h3 style="margin-left: 1rem; font-size:18px">CONTA</h3>
+          <ul>
+            <li>
+              <a href="https://wa.me/message/HMPGBLXXK4E3A1"id="link-menu"><i class="fa-solid fa-headphones"></i>Suporte</a>
+            </li>
+            <li>
+              <a href="https://wa.me/message/HMPGBLXXK4E3A1"id="link-menu"><i class="fa-solid fa-adjust"></i>Ajustes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <main>
     <form id="myForm" method="post">
         {% csrf_token %}
         <div class="form-block">
@@ -37,6 +114,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
+</main>
 
     <!-- Modal de Confirmação -->
     <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
@@ -57,7 +135,9 @@
                 </div>
             </div>
         </div>
+        
     </div>
+    
 
     <script>
         document.getElementById("myForm").addEventListener("submit", function(event) {

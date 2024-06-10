@@ -31,14 +31,14 @@ def register(request):
 
         user = User.objects.create_user(username=username,email=email,password=password)
         user.save()
-        return render(request, 'html/process.html')
+        return render(request, 'html/formulario.html')
 
 
 
 
 def login(request):
     if request.method == "GET":
-        return render(request, 'html/login.html')
+        return render(request, 'html/formulario.html')
     else:
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -49,7 +49,8 @@ def login(request):
         if user:
             # Efetuando o login
             login_django(request, user)
-            return HttpResponse('Login válido')
+            # Redirecionando para a página formulario.html
+            return redirect('formulario')
         else:
             return HttpResponse('Nome de usuário ou senha inválidos')
 

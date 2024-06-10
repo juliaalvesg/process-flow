@@ -4,47 +4,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../../../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" />
     <title>Cadastro</title>
     <style>
       @font-face {
         font-family: "Gilroy-bold";
-        src: url(../../static/font/Gilroy-Bold.ttf);
+        src: url("{% static 'font/Gilroy-Bold.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-regular";
-        src: url(../../static/font/Gilroy-Regular.ttf);
+        src: url("{% static 'font/Gilroy-Regular.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Medium";
-        src: url(../../static/font/Gilroy-Medium.ttf);
+        src: url("{% static 'font/Gilroy-Medium.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Light";
-        src: url(../../static/font/Gilroy-Light.ttf);
+        src: url("{% static 'font/Gilroy-Light.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Heavy";
-        src: url(../../static/font/Gilroy-Heavy.ttf);
+        src: url("{% static 'font/Gilroy-Heavy.ttf' %}");
       }
     </style>
   </head>
   <body>
     <header>
       <div class="menu">
-        <a href="/html/index.html" class="link-header"><span>Produtos</span></a>
-        <a
-          href="https://wa.me/message/HMPGBLXXK4E3A1"
-          class="link-header"
-          target="_blank"
-          ><span>Fale Conosco</span></a
-        >
+        <a href="{% url 'index' %}" class="link-header"><span>Produtos</span></a>
+        <a href="https://wa.me/message/HMPGBLXXK4E3A1" class="link-header" target="_blank">
+          <span>Fale Conosco</span>
+        </a>
       </div>
-      <a href="index.html" style="text-decoration: none">
-        <img src="../../static/imgs/Lockup-PF.svg" alt="Logo" class="logo" />
+      <a href="{% url 'index' %}" style="text-decoration: none">
+        <img src="{% static 'imgs/Lockup-PF.svg' %}" alt="Logo" class="logo" />
       </a>
       <div class="login-container">
-        <a href="login.html">
+        <a href="{% url 'login' %}">
           <button class="login-button">Login &#8599;</button>
         </a>
       </div>
@@ -56,24 +53,14 @@
         <form method="POST" action="{% url 'register' %}">
           {% csrf_token %}
           <input type="text" name="username" id="nome" placeholder="Nome" />
-          <input type="text" name="email" id="email" placeholder="Email" />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Senha"
-          />
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="password" name="password" id="password" placeholder="Senha" />
           <div style="margin-top: 15px">
-            <input
-              type="submit"
-              value="Cadastrar"
-              class="request-button"
-              name="submit"
-            />
+            <input type="submit" value="Cadastrar" class="request-button" name="submit" />
           </div>
         </form>
       </div>
-      <div class="image"></div>
+      <div class="image"><img src="{% static 'imgs/photo.png' %}" alt="Imagem" width="600px" /></div>
     </div>
   </body>
 </html>

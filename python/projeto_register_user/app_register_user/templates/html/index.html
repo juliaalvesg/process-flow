@@ -7,29 +7,29 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../../../../../css/style.css"
+      href="{% static 'css/style.css' %}"
     />
     <title>Process Flow</title>
     <style>
       @font-face {
         font-family: "Gilroy-bold";
-        src: url(../../static/font/Gilroy-Bold.ttf);
+        src: url("{% static 'font/Gilroy-Bold.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-regular";
-        src: url(../../static/font/Gilroy-Regular.ttf);
+        src: url("{% static 'font/Gilroy-Regular.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Medium";
-        src: url(../../static/font/Gilroy-Medium.ttf);
+        src: url("{% static 'font/Gilroy-Medium.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Light";
-        src: url(../../static/font/Gilroy-Light.ttf);
+        src: url("{% static 'font/Gilroy-Light.ttf' %}");
       }
       @font-face {
         font-family: "Gilroy-Heavy";
-        src: url(../../static/font/Gilroy-Heavy.ttf);
+        src: url("{% static 'font/Gilroy-Heavy.ttf' %}");
       }
     </style>
   </head>
@@ -44,12 +44,12 @@
           ><span>Fale Conosco</span></a
         >
       </div>
-      <img src="../../static/imgs/Lockup-PF.svg" alt="Logo" class="logo" />
+      <img src="{% static 'imgs/Lockup-PF.svg' %}" alt="Logo" class="logo" />
       <div class="login-container">
         <a href="login.html" class="link-login"
           ><h2 class="login-title">Login</h2></a
         >
-        <a href="register.html">
+        <a href="{% url 'register' %}">
           <button class="login-button">Inicie aqui &#8599;</button>
         </a>
       </div>
@@ -75,7 +75,7 @@
               Solicite um Orçamento <span class="arrow">&#8599;</span>
             </button>
           </a>
-          <a href="register.html" class="link-login">
+          <a href="{% url 'register' %}" class="link-login">
             <button class="free-trial-button">
               Teste de graça! <span class="arrow">&#8599;</span>
             </button>
@@ -83,7 +83,7 @@
         </div>
       </div>
       <div class="image">
-        <img src="../../static/imgs/photo.png" alt="Imagem" width="600px" />
+        <img src="{% static 'imgs/photo.png' %}" alt="Imagem" width="600px" />
       </div>
     </div>
 
