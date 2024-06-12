@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../../static/css/formulario.css" />
+    <link rel="stylesheet" href="../../static/css/report.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Process Flow - Formulário Page</title>
+    <title>Process Flow - Relatório</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -32,18 +32,23 @@
           }
 
         .form-block {
-            padding: 20px;
-            margin: 5px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 5px;
             flex-direction: column;
+            background-color: #F8f8f8;
+            width: 550%;
         }
-        .form-block h3 {
-            margin-top: 0;
+
+        .datetime {
+          display: flex;
+          justify-content: center;
         }
 
         input{
             display: flex;
-            flex-direction: column;
+           
             
         }
     </style>
@@ -61,7 +66,7 @@
         </div>
         <div class="right_header">
           <h1 style="display: flex; align-items: center;" >
-            Formulário de Cadastro
+            Dashboard do advogado
           </h1>
           <div class="input_container">
             <input type="text" class="placeholder" placeholder="Pesquisar..." />
@@ -83,50 +88,21 @@
         <form id="myForm" method="post">
         <div class="container-form">
             <div class="form-block">
-                <h3>Dados do Cliente</h3>
+                <h3>Relatório</h3>
                 <p>
-                    <label for="id_nome">Nome:</label>
-                    <input type="text" name="nome" id="nome">
+                    <label for="id_cliente">Cliente</label>
+                    <input type="text" name="cliente" id="cliente">
                 </p>
                 <p>
-                    <label for="id_email">Email:</label>
-                    <input type="text" name="email" id="email">
+                    <label for="id_data">Data</label>
+                    <input class="datetime" type="date" name="data" id="data">
                 </p>
                 <p>
-                    <label for="id_telefone">Telefone:</label>
-                    <input type="text" name="telefone" id="telefone">
+                    <label for="id_causa">Causa</label>
+                    <input type="text" name="causa" id="causa">
                 </p>
-                <p>
-                    <label for="id_cpf">CPF:</label>
-                    <input type="text" name="cpf" id="cpf">
-                </p>
-                <p>
-                    <label for="id_identidade">Identidade:</label>
-                    <input type="text" name="identidade" id="identidade">
-                </p>
+                <button type="submit" class="btn">Adicionar</button>
             </div>
-            <div class="form-block">
-                <h3>Dados do Processo</h3>
-                <p>
-                    <label for="id_numprocesso">Numero processo:</label>
-                    <input type="text" name="numprocesso" id="numprocesso">
-                </p>
-                <p>
-                    <label for="id_vara">Vara:</label>
-                    <input type="text" name="vara" id="vara">
-                </p>
-                <p>
-                    <label for="id_local">Local:</label>
-                    <input type="text" name="local" id="local">
-                </p>
-            </div>
-            </div>
-            <div class="form-block">
-                <h3>Atualizações</h3>
-                <p>
-                    <textarea class="info" name="id_informacoes" cols="40" rows="10" required id="id_informacoes"></textarea>
-                </p>
-            <button type="submit" class="btn">Salvar</button>
         </div>
         </form>
     
@@ -185,7 +161,6 @@
                     // Exibe o modal de confirmação
                     $('#confirmationModal').modal('show');
                     $('#confirmationModal').on('hidden.bs.modal', function () {
-                        // Limpa os campos do formulário após fechar o modal
                         document.getElementById("myForm").reset();
                     });
                 } else {

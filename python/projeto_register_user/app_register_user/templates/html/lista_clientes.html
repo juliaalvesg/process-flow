@@ -1,5 +1,4 @@
 <!-- html/lista_clientes.html -->
-{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +21,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'css/lista_clientes.css' %}"
+      href="../../static/css/lista_clientes.css"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -34,35 +33,51 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      @font-face {
+          font-family: "Gilroy-bold";
+          src: url(../../../../../font/Gilroy-Bold.ttf);
+        }
+        @font-face {
+          font-family: "Gilroy-regular";
+          src: url(../../../../../font/Gilroy-Heavy.ttf);
+        }
+        @font-face {
+          font-family: "Gilroy-Medium";
+          src: url(../../../../../font/Gilroy-Medium.ttf);
+        }
+        @font-face {
+          font-family: "Gilroy-Light";
+          src: url(../../../../../font/Gilroy-Light.ttf);
+        }
+        @font-face {
+          font-family: "Gilroy-Heavy";
+          src: url(../../../../../font/Gilroy-Regular.ttf);
+        }
+        </style>
   </head>
   <body>
     <div class="container1">
       <header style="display: flex">
         <div class="logo">
-          <img src="{% static 'imgs/logo.png' %}" alt="Logo" class="logo" />
+          <img src="../../../../../imgs/logo.png" alt="Logo" class="img-logo" />
         </div>
         <div class="right_header">
           <h1 style="display: flex; align-items: center">
             Registro de Clientes
           </h1>
           <div class="input_container">
-            <i class="fas fa-search"></i>
             <input type="text" placeholder="Pesquisar..." />
             <div class="notification" width="auto;">
               <i
-                class="far fa-bell"
-                style="margin: 0; font-size: 30px; color: rgb(197, 197, 197)"
+                class="fa fa-bell"
+                style="margin: 0; font-size: 24px; color: #A6A6A6"
               ></i>
             </div>
             <div class="perfil">
               <div class="foto">
-                <img
-                  src="{% static 'imgs/perfil.jpg' %}"
-                  width="100%"
-                  style="background-size: cover"
-                />
+                <img class="profilephoto" src="../../../../../imgs/perfil.jpg" style="background-size: cover" />
               </div>
-            </div>
           </div>
         </div>
       </header>
@@ -383,6 +398,9 @@
                 ><i class="fa-solid fa-house" style="text-decoration: none"></i
                 >Processo</a
               >
+            </li>
+            <li>
+              <a href=""><i class="fa-solid fa-user" ></i>Clientes</a>
             </li>
           </ul>
         </div>
