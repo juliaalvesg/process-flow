@@ -53,17 +53,15 @@
 <body style="margin: 0">
     <div class="container">
       <header>
-
         <div class="right_header">
-          <h1 style="display: flex; align-items: center;">
-            Formulário de Cadastro
+          <img src="../../static/imgs/Lockup-PF.svg" alt="Logo" class="logo" />
+          <h1 style="display: flex; align-items: center; font-weight: bold;">
+            Dashboard do advogado
           </h1>
           <div class="input_container">
             <i class="fas fa-search"></i>
             <input type="text" class="placeholder" />
-            <div class="notification">
-              <i class="far fa-bell" style="margin: 0; font-size: 30px; color: rgb(197, 197, 197)"></i>
-            </div>
+
             <div class="perfil">
               <div class="foto">
                 <img class="profilephoto" src="{% static 'imgs/perfil.jpg' %}" style="background-size: cover" />
@@ -91,9 +89,6 @@
             <li>
               <a href="https://wa.me/message/HMPGBLXXK4E3A1"id="link-menu"><i class="fa-solid fa-headphones"></i>Suporte</a>
             </li>
-            <li>
-              <a href="https://wa.me/message/HMPGBLXXK4E3A1"id="link-menu"><i class="fa-solid fa-adjust"></i>Ajustes</a>
-            </li>
           </ul>
         </div>
       </nav>
@@ -112,7 +107,7 @@
             <h3>Atualizações</h3>
             {{ atualizacao_form.as_p }}
         </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-primary" style="background-color: rgba(1, 33, 58, 1); border:0">Salvar</button>
     </form>
 </main>
 
